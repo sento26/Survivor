@@ -19,6 +19,12 @@ public class EnemySpawn : MonoBehaviour
 
     public float margenEnemy = 2;
 
+    public int lvl = 1;
+    public int numberEnemies = 0;
+    public int numberTotalEnemies = 20;
+
+    public Transform player;
+
     void Start()
     {
         cameraAspectRatio = camera.aspect; 
@@ -29,42 +35,49 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sideScreen = Random.Range(0, 3);
-        sideValueRandom = Random.Range(0f, 1f);
+        if(numberEnemies <= numberTotalEnemies)
+        {
+            EnemySpawnLevel();
+            numberEnemies++;
+        }
 
-        print(sideValueRandom);
+    }
+
+    public void EnemySpawnLevel()
+    {
+        sideScreen = Random.Range(0, 4);
+        sideValueRandom = Random.Range(0f, 1f);
 
         switch (sideScreen)
         {
             case 0:
                 {
                     sideValueConverted = (cameraWidth * sideValueRandom) - cameraWidth / 2;
-                    Instantiate(Enemy1, new Vector3(sideValueConverted, cameraHeight / 2 + margenEnemy, 0f), Quaternion.identity);
+                    Instantiate(Enemy1, new Vector3(sideValueConverted, 1f, cameraHeight / 2 + margenEnemy), Quaternion.identity).GetComponent<EnemyActions>().SetPlayerTransform(player);
                     break;
                 }
-                /*
+
             case 1:
                 {
-                    sideValueConverted = (cameraWidth * sideValueRandom);
-                    Instantiate(Enemy1, new Vector3(10.2f, sideValueConverted, 0f), Quaternion.identity);
+                    sideValueConverted = (cameraHeight * sideValueRandom) - cameraHeight / 2;
+                    Instantiate(Enemy1, new Vector3(cameraWidth / 2 + margenEnemy, 1f, sideValueConverted), Quaternion.identity).GetComponent<EnemyActions>().SetPlayerTransform(player);
+
                     break;
                 }
 
             case 2:
                 {
-                    sideValueConverted = (cameraHeight * sideValueRandom);
-                    Instantiate(Enemy1, new Vector3(sideValueConverted, -5.5f, 0f), Quaternion.identity);
+                    sideValueConverted = (cameraWidth * sideValueRandom) - cameraWidth / 2;
+                    Instantiate(Enemy1, new Vector3(sideValueConverted, 1f ,- (cameraHeight / 2 + margenEnemy)), Quaternion.identity).GetComponent<EnemyActions>().SetPlayerTransform(player);
                     break;
                 }
 
             case 3:
                 {
-                    sideValueConverted = (cameraWidth * sideValueRandom);
-                    Instantiate(Enemy1, new Vector3(-10.2f, sideValueConverted, 0f), Quaternion.identity);
+                    sideValueConverted = (cameraHeight * sideValueRandom) - cameraHeight / 2;
+                    Instantiate(Enemy1, new Vector3(-(cameraWidth / 2 + margenEnemy), 1f, sideValueConverted), Quaternion.identity).GetComponent<EnemyActions>().SetPlayerTransform(player);
                     break;
                 }
-                */
         }
-
     }
 }
