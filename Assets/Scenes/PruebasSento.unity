@@ -541,6 +541,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3468966647256922392, guid: 2405ece86b0fa9944bfb6ba5ffbd6432, type: 3}
+      propertyPath: radio
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468966647256922392, guid: 2405ece86b0fa9944bfb6ba5ffbd6432, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 341926527}
