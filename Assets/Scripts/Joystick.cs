@@ -17,7 +17,7 @@ public class Joystick : MonoBehaviour
         if (Input.touchCount > 0 || Input.GetMouseButton(0))
         {
             GetComponent<RectTransform>().position = Input.mousePosition;
-            print(Input.mousePosition);
+            //print(Input.mousePosition);
             /*
             Vector3 joy = this.transform.position;
             print(joy);

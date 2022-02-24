@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8018180288710480951}
   - component: {fileID: 6041759339083162698}
   - component: {fileID: 7317208779676963639}
-  - component: {fileID: 8857818302972375283}
+  - component: {fileID: 3468966647256922392}
+  - component: {fileID: 6741582759271423029}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -82,8 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8857818302972375283
-BoxCollider:
+--- !u!114 &3468966647256922392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710160953505847856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a398baf2e63acd40b1d6405ee7991df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &6741582759271423029
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,5 +106,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
