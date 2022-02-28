@@ -11,17 +11,24 @@ public class Player : MonoBehaviour
     public float radio;
     CharacterController controller;
     public float speed = 5;
+    public GameObject EnemyController;
+    public GameObject bala;
     // Start is called before the first frame update
     void Start()
     {
         initialPositionJoystick = joystick.GetComponent<RectTransform>().position;
         controller = GetComponent<CharacterController>();
+        StartCoroutine(EsperaAtacar());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount >0 || Input.GetButton("Click_Raton"))
+        Movimiento();
+    }
+    public void Movimiento()
+    {
+        if (Input.touchCount > 0 || Input.GetButton("Click_Raton"))
         {
             //Vector3 movementDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
             // moveDirection = new Vector3(Input.GetAxisRaw("Mouse X"), 0, Input.GetAxisRaw("Mouse Y")).normalized;
@@ -57,4 +64,21 @@ public class Player : MonoBehaviour
             joystick.GetComponent<RectTransform>().position = initialPositionJoystick;
         }
     }
+    private IEnumerator EsperaAtacar()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            Atacar();
+        }        
+    }
+    public void Atacar()
+    {
+        Transform NearEnemy = EnemyController.GetComponent<EnemySpawn>().DevolverEnemigoCercano();
+        if (NearEnemy != null)
+        {
+            Instantiate(bala, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity, transform).GetComponent<Bala>().SetDirection(NearEnemy);
+        }
+    }
+
 }

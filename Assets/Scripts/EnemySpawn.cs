@@ -79,4 +79,19 @@ public class EnemySpawn : MonoBehaviour
                 }
         }
     }
+    public Transform DevolverEnemigoCercano()
+    {
+        Transform auxEnemy=null;
+        for (int i=0; i < transform.childCount; i++)
+        {
+            float distMin=Vector3.Distance(transform.GetChild(i).position, player.position);
+            auxEnemy = transform.GetChild(i);            
+            if (Vector3.Distance(transform.GetChild(i).position, player.position) < distMin)
+            {
+                distMin = Vector3.Distance(transform.GetChild(i).position, player.position);
+                auxEnemy = transform.GetChild(i);
+            }            
+        }
+        return auxEnemy;
+    }
 }
