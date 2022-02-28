@@ -53,29 +53,28 @@ public class EnemySpawn : MonoBehaviour
             case 0:
                 {
                     sideValueConverted = (cameraWidth * sideValueRandom) - cameraWidth / 2;
-                    Instantiate(Enemy1, new Vector3(sideValueConverted, 1f, cameraHeight / 2 + margenEnemy), Quaternion.identity).GetComponent<EnemyActions>().SetPlayerTransform(player);
+                    Instantiate(Enemy1, new Vector3(sideValueConverted, 1f, cameraHeight / 2 + margenEnemy), Quaternion.identity, transform).GetComponent<EnemyActions>().SetPlayerTransform(player);
                     break;
                 }
 
             case 1:
                 {
                     sideValueConverted = (cameraHeight * sideValueRandom) - cameraHeight / 2;
-                    Instantiate(Enemy1, new Vector3(cameraWidth / 2 + margenEnemy, 1f, sideValueConverted), Quaternion.identity).GetComponent<EnemyActions>().SetPlayerTransform(player);
-
+                    Instantiate(Enemy1, new Vector3(cameraWidth / 2 + margenEnemy, 1f, sideValueConverted), Quaternion.identity, transform).GetComponent<EnemyActions>().SetPlayerTransform(player);
                     break;
                 }
 
             case 2:
                 {
                     sideValueConverted = (cameraWidth * sideValueRandom) - cameraWidth / 2;
-                    Instantiate(Enemy1, new Vector3(sideValueConverted, 1f ,- (cameraHeight / 2 + margenEnemy)), Quaternion.identity).GetComponent<EnemyActions>().SetPlayerTransform(player);
+                    Instantiate(Enemy1, new Vector3(sideValueConverted, 1f ,- (cameraHeight / 2 + margenEnemy)), Quaternion.identity, transform).GetComponent<EnemyActions>().SetPlayerTransform(player);
                     break;
                 }
 
             case 3:
                 {
                     sideValueConverted = (cameraHeight * sideValueRandom) - cameraHeight / 2;
-                    Instantiate(Enemy1, new Vector3(-(cameraWidth / 2 + margenEnemy), 1f, sideValueConverted), Quaternion.identity).GetComponent<EnemyActions>().SetPlayerTransform(player);
+                    Instantiate(Enemy1, new Vector3(-(cameraWidth / 2 + margenEnemy), 1f, sideValueConverted), Quaternion.identity, transform).GetComponent<EnemyActions>().SetPlayerTransform(player);
                     break;
                 }
         }
